@@ -23,7 +23,7 @@ const Form = (props) => {
         id="height"
         onChange={props.onChangeHandler}
       />
-      <button>Calculate BMI</button>
+      <button id="calculate">Calculate BMI</button>
     </form>
   );
 };
