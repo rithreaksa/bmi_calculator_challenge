@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import Card from "./components/Card";
+import CenteredContainer from "./components/CenteredContainer";
 import Form from "./components/Form";
+import Header from "./components/Header";
 import Message from "./components/Message";
 import { calculateBMI } from "./helpers/bmiHelper";
 
@@ -21,23 +24,27 @@ class App extends Component {
     );
     this.setState({ bmiValue: bmiValue, bmiMessage: bmiMessage });
   };
+
   render() {
     return (
-      <div>
-        <Form
-          weight={this.state.weight}
-          height={this.state.height}
-          onChangeHandler={this.onChangeHandler}
-          onSubmitHandler={this.onSubmitHandler}
-        />
-
-        {this.state.bmiValue && (
-          <Message
-            bmiValue={this.state.bmiValue}
-            bmiMessage={this.state.bmiMessage}
+      <CenteredContainer>
+        <Header>BMI Calculator</Header>
+        <Card>
+          <Form
+            weight={this.state.weight}
+            height={this.state.height}
+            onChangeHandler={this.onChangeHandler}
+            onSubmitHandler={this.onSubmitHandler}
           />
-        )}
-      </div>
+
+          {this.state.bmiValue && (
+            <Message
+              bmiValue={this.state.bmiValue}
+              bmiMessage={this.state.bmiMessage}
+            />
+          )}
+        </Card>
+      </CenteredContainer>
     );
   }
 }
